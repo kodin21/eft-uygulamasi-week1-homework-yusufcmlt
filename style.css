@@ -76,13 +76,6 @@ h2 {
   flex-wrap: wrap;
   position: relative;
 }
-b {
-  position: absolute;
-  top: 3.6rem;
-  left: 1rem;
-  font-size: 1.6rem;
-  font-weight: 700;
-}
 
 .form__label {
   font-size: 1.6rem;
@@ -92,7 +85,7 @@ b {
 
 .form__input {
   flex: 0 0 100%;
-  height: 3.5rem;
+
   border: 2px solid #f0961925;
 
   background-color: #faf2a9;
@@ -104,6 +97,7 @@ b {
 
   font-size: 1.6rem;
   font-weight: 600;
+  font-family: inherit;
   color: #333;
 }
 
@@ -113,9 +107,6 @@ b {
 }
 .form__input:invalid {
   border-bottom: 2px solid red;
-}
-
-.form__select {
 }
 
 .form__btn {
@@ -128,13 +119,38 @@ b {
   font-weight: 600;
   font-family: inherit;
   font-size: 1.6rem;
-  border: 2px solid #f09819;
-  background-color: transparent;
+
+  background-color: #f09819;
+  cursor: pointer;
 
   transition: 0.3s;
 }
 
 .form__btn:hover {
-  background-color: #f09819;
-  border: 2px solid transparent;
+  background-color: #d48617;
+}
+.form__btn:active {
+  transform: translateY(2px);
+}
+.form__btn:disabled {
+  background-color: #333;
+  color: white;
+}
+.form__btn:disabled:active {
+  transform: translate(0);
+}
+
+@media only screen and (max-width: 1024px) {
+  html {
+    font-size: 50%;
+  }
+  body {
+    align-content: center;
+  }
+  .form__container {
+    padding: 2rem;
+  }
+  .form {
+    width: 100%;
+  }
 }
