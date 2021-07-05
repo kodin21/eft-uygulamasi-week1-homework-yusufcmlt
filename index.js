@@ -1,6 +1,5 @@
-import { name } from './example-other-file';
+import Form from "./component/Form";
+import formData from "./data/form-data";
+//Formun document icerisine yerlestirilmesi
 
-console.log('Javascriptinizi buraya yazabilirsiniz')
-
-// Baska dosyadan calistirmak mumkun, dosyalari parcalamaktan korkmayin!
-// name
+Form(formData);
