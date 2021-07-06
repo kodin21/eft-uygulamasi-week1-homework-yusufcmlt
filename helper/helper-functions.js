@@ -1,6 +1,7 @@
 import FormTimer from "../components/FormTimer";
 import SelectOptions from "../components/SelectOptions";
 import swal from "sweetalert";
+import backgroundData from "../data/background-data";
 
 //Form elemanindaki inputlara on change eventinin eklenmesi
 //Inputlara keyup eventi de eklendi: her tus girisinin kontrol edilmesi isteniyor.
@@ -40,6 +41,7 @@ export function clearInputValues(inputList) {
 
 //Gonderilecek miktarin 500 birimden fazla olmasinin kontrolu
 //Sifre girebilme hakkiyla beraber yanlis sifre durumunda tekrar cagirilma.
+//Sweetalert eklendi.
 export function higherAmountTransaction(
   passwordAttemptsLeft,
   passwordSent = "1234"
@@ -82,4 +84,23 @@ export function transactionCompleted() {
   swal({ icon: "success", title: "İşlem başarılı" }).then(() => {
     location.reload();
   });
+}
+
+//Gereksiz kisim
+//Deneme amacli yapildi.
+//Rastgele tema her load durumunda
+export function getRandomTheme() {
+  const randomIndex = Math.floor(Math.random() * 4);
+  const randomTheme = backgroundData[randomIndex];
+
+  let logoContainer = document.querySelector(".logo");
+  logoContainer.querySelector("img").setAttribute("src", `${randomTheme.img}`);
+  logoContainer.querySelector("h2").textContent = `${randomTheme.text}Bank`;
+  document.body.style.backgroundImage = randomTheme.backgroundColor;
+  document.querySelectorAll(".form__input").forEach((element) => {
+    console.log(element);
+    element.style.backgroundColor = randomTheme.inputColor;
+  });
+  console.log(document.querySelector("button"));
+  document.querySelector("button").style.backgroundColor = randomTheme.btnColor;
 }
