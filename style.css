@@ -15,16 +15,16 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
   line-height: 1.6;
-  background: #f09819; /* fallback for old browsers */
+  background: #41295a; /* fallback for old browsers */
   background-image: -webkit-linear-gradient(
     to right,
-    #edde5d,
-    #f09819
+    #41295a,
+    #2f0743
   ); /* Chrome 10-25, Safari 5.1-6 */
   background-image: linear-gradient(
     to right,
-    #edde5d,
-    #f09819
+    #41295a,
+    #2f0743
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   min-height: 100vh;
