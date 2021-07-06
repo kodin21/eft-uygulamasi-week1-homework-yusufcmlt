@@ -1,41 +1,46 @@
-import FormTimer from "./components/FormTimer";
-import SelectOptions from "./components/SelectOptions";
 import formData from "./data/form-data";
-
-console.log("YEAH");
+import {
+  inputEventCreator,
+  selectGroupCreator,
+  timerCreator,
+} from "./helper/creator-functions";
 
 //Form State Verisi
 const formState = {};
+
 //Form elemaninin tanimlanmasi
 const formElement = document.querySelector("form");
+inputEventCreator(formElement, handleInputChange);
+timerCreator(formElement);
+selectGroupCreator(formData, formState, handleInputChange);
+//Button tanimi
+const buttonElement = formElement.querySelector("button");
+const [inputIBAN, inputAmount] = formElement.querySelectorAll("input");
+const selectElement = formElement.querySelector("select");
 
 //Input change eventi
+//Form icerisinde input ve select elemanlari degistiginde form kontrol edilir
+//formState verisi input degerlerine gore guncellenir
 function handleInputChange(event) {
-  const { id, value } = event.target;
-  formState[id] = value;
-
-  console.log(formState);
-  console.log(formElement.checkValidity());
+  const { name, value } = event.target;
+  formState[name] = value;
+  setInputMaxAttribute(formState[selectElement.name]);
+  checkFormValidity();
 }
 
-//Form elemanindaki inputlara on change eventinin eklenmesi
-//Inputlara keyup eventi de eklendi: her tus girisinin kontrol edilmesi isteniyor.
-formElement.querySelectorAll("input").forEach((input) => {
-  input.addEventListener("change", handleInputChange);
-  input.addEventListener("keyup", handleInputChange);
-});
+function checkFormValidity() {
+  const isFormValid = formElement.checkValidity();
+  toggleButtonAccess(isFormValid);
+}
 
-//Timerin forma eklenmesi.
-const timerElement = FormTimer(402);
-formElement.prepend(timerElement);
-
-//Select eleman grubunun ---timerdan hemen sonra--- forma eklenmesi.
-//id ve onChangeFunction argumanlari kullanilarak select grubu olusturuluyor ve event baglaniyor.
-//Ilk render durumunda secili secenegin degeri state e ataniyor.
-const selectGroup = SelectOptions(formData, {
-  id: "gondericiHesapMiktar",
-  onChangeFunction: handleInputChange,
-});
-const selectElement = selectGroup.querySelector("select");
-formState[selectElement.name] = selectElement.value;
-timerElement.insertAdjacentElement("afterend", selectGroup);
+function toggleButtonAccess(buttonState) {
+  buttonElement.disabled = !buttonState;
+  buttonElement.textContent = !buttonState
+    ? "Eksik bilgi"
+    : `${formState[inputAmount.name]}₺ Gönder`;
+}
+function setInputMaxAttribute(maxAmountValue) {
+  console.log(maxAmountValue);
+  inputAmount.setAttribute("max", `${maxAmountValue}`);
+}
+checkFormValidity();
