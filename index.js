@@ -1,6 +1,7 @@
 import formData from "./data/form-data";
 import {
   clearInputValues,
+  getRandomTheme,
   higherAmountTransaction,
   inputEventCreator,
   selectGroupCreator,
@@ -75,3 +76,6 @@ function setInputMaxAttribute(maxAmountValue) {
 //Ilk sayfa yuklenmesi durumunda formun kontrolu
 clearInputValues([inputIBAN, inputAmount]);
 checkFormValidity();
+setTimeout(() => {
+  getRandomTheme();
+}, 300);
