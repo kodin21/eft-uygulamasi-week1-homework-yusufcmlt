@@ -18,33 +18,29 @@
     <div class="form__container">
       <div class="logo">
         <img src="./img/grape.svg" alt="banana" class="logo__img" />
-        <h2>Üzüm Bank</h2>
+        <h2>ÜzümBank</h2>
         <!-- form-start -->
-
         <form action="#" class="form">
-          <div class="form__timer">Kalan Süre 02:00</div>
-          <div class="form__group">
-            <label for="ibanGonderen" class="form__label">Gönderen Hesap</label
-            ><select id="ibanGonderen" name="" class="form__input form__select">
-              <!-- Select optionlar buraya -->
-              <option value="">option-1</option>
-              <option value="">option-2</option>
-              <option value="">option-3</option>
-              <option value="">option-4</option>
-            </select>
-          </div>
           <div class="form__group">
             <label for="ibanAlici" class="form__label">Alıcı Hesap</label
-            ><input type="text" class="form__input" id="ibanAlici" />
+            ><input
+              type="text"
+              class="form__input"
+              id="ibanAlici"
+              name="ibanAlici"
+              required
+            />
           </div>
           <div class="form__group">
-            <label for="gonderilenMiktar" class="form__label">Miktar</label
+            <label for="gonderilecekMiktar" class="form__label">Miktar</label
             ><b>₺</b
             ><input
               type="number"
               min="0"
               class="form__input"
-              id="gonderilenMiktar"
+              id="gonderilecekMiktar"
+              name="gonderilecekMiktar"
+              required
             />
           </div>
           <div class="form__group">
