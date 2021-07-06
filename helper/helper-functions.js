@@ -1,5 +1,6 @@
 import FormTimer from "../components/FormTimer";
 import SelectOptions from "../components/SelectOptions";
+import swal from "sweetalert";
 
 //Form elemanindaki inputlara on change eventinin eklenmesi
 //Inputlara keyup eventi de eklendi: her tus girisinin kontrol edilmesi isteniyor.
@@ -30,6 +31,7 @@ export function selectGroupCreator(formData, initialState, eventFunction) {
     .insertAdjacentElement("beforebegin", selectGroup);
 }
 
+//Sayfa load durumunda input iceriginin silinmesi.
 export function clearInputValues(inputList) {
   inputList.forEach((element) => {
     element.value = "";
@@ -38,33 +40,46 @@ export function clearInputValues(inputList) {
 
 //Gonderilecek miktarin 500 birimden fazla olmasinin kontrolu
 //Sifre girebilme hakkiyla beraber yanlis sifre durumunda tekrar cagirilma.
-export function higherAmountTransaction(passwordAttemptsLeft) {
+export function higherAmountTransaction(
+  passwordAttemptsLeft,
+  passwordSent = "1234"
+) {
   if (passwordAttemptsLeft === 0) {
     return transactionFailed();
   }
-
-  let twoFactor = prompt(
-    "Telefonunuza gelen şifreyi girin",
-    `${passwordAttemptsLeft} Hakkiniz Kaldi `
-  );
-
-  //Sifrenin dogru olma durumu.
-  if (twoFactor === "1234") {
-    return transactionCompleted();
-  }
-  //Sifrenin yanlis olma durumunda tekrar promptun cagirilmasi.
-  else {
-    alert("Şifre yanlış");
-    return higherAmountTransaction(passwordAttemptsLeft - 1);
-  }
+  //Sweetalert ile prompt yonetimi
+  swal({
+    title: "Güvenlik Kontrolü",
+    text: `Telefonunuza gelen şifreyi giriniz. ${passwordAttemptsLeft} hakkınız kaldı.`,
+    content: "input",
+    button: "Gönder",
+    icon: "info",
+  }).then((password) => {
+    //Sifre parametresinin kontrolu
+    if (password === passwordSent) {
+      return transactionCompleted();
+    } else {
+      swal({
+        icon: "error",
+        title: "Şifre yanlış",
+      }).then(() => {
+        //Yanlis sifre durumunda tekrar cagirilma
+        return higherAmountTransaction(passwordAttemptsLeft - 1, passwordSent);
+      });
+    }
+  });
 }
 
+//Gonderim isleminin basarisiz olmasi durumu
 export function transactionFailed() {
-  alert("Hesabiniz bloke oldu.");
-  location.reload();
+  swal({ icon: "error", title: "Hesabiniz bloke oldu." }).then(() => {
+    location.reload();
+  });
 }
 
+//Gonderim isleminin basarili olmasi durumu
 export function transactionCompleted() {
-  alert("İşlem başarılı.");
-  location.reload();
+  swal({ icon: "success", title: "İşlem başarılı" }).then(() => {
+    location.reload();
+  });
 }

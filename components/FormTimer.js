@@ -15,12 +15,6 @@ export default function FormTimer(time) {
     return { minutesLeft, secondsLeft };
   }
 
-  //Sure sonu
-  function timerEnd() {
-    alert("Sureniz Doldu! Sayfa Yenileniyor");
-    location.reload();
-  }
-
   //Saniyede 1 tik
   function timerTick(timerElement) {
     time -= 1;
@@ -42,9 +36,21 @@ export default function FormTimer(time) {
   timerContainer.innerHTML = `Kalan Süre <span id="timerKalan">${firstTime.minutesLeft}:${firstTime.secondsLeft}
     </span>`;
   //Timeri calistir
-  setInterval(() => {
+  const timerID = setInterval(() => {
     timerTick(timerContainer);
   }, 1000);
+
+  //Sure sonu
+  function timerEnd() {
+    clearInterval(timerID);
+    swal({
+      icon: "info",
+      title: "İşlem süresi doldu.",
+      text: "Oturumunuz sonlandırıldı.",
+    }).then(() => {
+      location.reload();
+    });
+  }
 
   return timerContainer;
 }
