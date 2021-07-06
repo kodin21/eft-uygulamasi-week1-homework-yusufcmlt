@@ -29,3 +29,42 @@ export function selectGroupCreator(formData, initialState, eventFunction) {
     .querySelector(".form__group")
     .insertAdjacentElement("beforebegin", selectGroup);
 }
+
+export function clearInputValues(inputList) {
+  inputList.forEach((element) => {
+    element.value = "";
+  });
+}
+
+//Gonderilecek miktarin 500 birimden fazla olmasinin kontrolu
+//Sifre girebilme hakkiyla beraber yanlis sifre durumunda tekrar cagirilma.
+export function higherAmountTransaction(passwordAttemptsLeft) {
+  if (passwordAttemptsLeft === 0) {
+    return transactionFailed();
+  }
+
+  let twoFactor = prompt(
+    "Telefonunuza gelen şifreyi girin",
+    `${passwordAttemptsLeft} Hakkiniz Kaldi `
+  );
+
+  //Sifrenin dogru olma durumu.
+  if (twoFactor === "1234") {
+    return transactionCompleted();
+  }
+  //Sifrenin yanlis olma durumunda tekrar promptun cagirilmasi.
+  else {
+    alert("Şifre yanlış");
+    return higherAmountTransaction(passwordAttemptsLeft - 1);
+  }
+}
+
+export function transactionFailed() {
+  alert("Hesabiniz bloke oldu.");
+  location.reload();
+}
+
+export function transactionCompleted() {
+  alert("İşlem başarılı.");
+  location.reload();
+}
