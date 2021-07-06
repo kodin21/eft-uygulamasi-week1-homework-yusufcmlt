@@ -86,9 +86,9 @@ h2 {
 .form__input {
   flex: 0 0 100%;
 
-  border: 2px solid #f0961925;
+  border: 2px solid #ebc6dc;
 
-  background-color: #faf2a9;
+  background-color: #f0d9e7;
   padding: 2rem 2rem;
 
   border-radius: 5px;
@@ -108,6 +108,14 @@ h2 {
 .form__input:invalid {
   border-bottom: 2px solid red;
 }
+b {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+}
 
 .form__btn {
   border-radius: 5px;
@@ -120,14 +128,15 @@ h2 {
   font-family: inherit;
   font-size: 1.6rem;
 
-  background-color: #f09819;
+  background-color: #ff94cc;
   cursor: pointer;
 
   transition: 0.3s;
 }
 
 .form__btn:hover {
-  background-color: #d48617;
+  background-color: #a239ea;
+  color: white;
 }
 .form__btn:active {
   transform: translateY(2px);
