@@ -11,6 +11,10 @@ const formData = [
     iban: "TR590010009999901234567895",
     balance: 1000,
   },
+  {
+    iban: "TR590010009999901234589225",
+    balance: 300,
+  },
 ];
 
 export default formData;
