@@ -13,8 +13,8 @@ export function inputEventCreator(containerForm, eventFunction) {
 }
 //Timerin forma eklenmesi.
 //Timer saniye ile cagirilir (dk*60)
-export function timerCreator(containerForm) {
-  const timerElement = FormTimer(120);
+export function timerCreator(containerForm, timeLimit) {
+  const timerElement = FormTimer(timeLimit);
   containerForm.prepend(timerElement);
 }
 
