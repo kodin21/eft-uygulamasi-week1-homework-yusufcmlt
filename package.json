@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "sweetalert": "^2.1.2"
   }
 }
