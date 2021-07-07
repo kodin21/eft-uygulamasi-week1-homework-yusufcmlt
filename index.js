@@ -76,6 +76,8 @@ function setInputMaxAttribute(maxAmountValue) {
 //Ilk sayfa yuklenmesi durumunda formun kontrolu
 clearInputValues([inputIBAN, inputAmount]);
 checkFormValidity();
+
+//Deneme amacli yapildi.
 setTimeout(() => {
   getRandomTheme();
 }, 300);

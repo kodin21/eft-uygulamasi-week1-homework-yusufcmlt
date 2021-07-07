@@ -12,8 +12,9 @@ export function inputEventCreator(containerForm, eventFunction) {
   });
 }
 //Timerin forma eklenmesi.
+//Timer saniye ile cagirilir (dk*60)
 export function timerCreator(containerForm) {
-  const timerElement = FormTimer(402);
+  const timerElement = FormTimer(120);
   containerForm.prepend(timerElement);
 }
 
@@ -92,15 +93,17 @@ export function transactionCompleted() {
 export function getRandomTheme() {
   const randomIndex = Math.floor(Math.random() * 4);
   const randomTheme = backgroundData[randomIndex];
-
   let logoContainer = document.querySelector(".logo");
+
+  document.body.style.backgroundImage = randomTheme.backgroundColor;
   logoContainer.querySelector("img").setAttribute("src", `${randomTheme.img}`);
   logoContainer.querySelector("h2").textContent = `${randomTheme.text}Bank`;
-  document.body.style.backgroundImage = randomTheme.backgroundColor;
+
   document.querySelectorAll(".form__input").forEach((element) => {
     console.log(element);
     element.style.backgroundColor = randomTheme.inputColor;
   });
   console.log(document.querySelector("button"));
   document.querySelector("button").style.backgroundColor = randomTheme.btnColor;
+  document.title = `${randomTheme.text}Bank EFT`;
 }
