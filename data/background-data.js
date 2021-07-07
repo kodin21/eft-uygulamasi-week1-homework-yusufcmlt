@@ -1,5 +1,3 @@
-import pear from "../img/pear.svg";
-
 const backgroundData = [
   {
     img: "https://user-images.githubusercontent.com/58252790/124671813-bd89a880-debe-11eb-88e6-30acd157ff26.png",
@@ -11,7 +9,7 @@ const backgroundData = [
   {
     img: "https://user-images.githubusercontent.com/58252790/124671816-bd89a880-debe-11eb-8fa7-eee05247f1dc.png",
     text: "Karpuz",
-    btnColor: "#D83A56 ",
+    btnColor: "#ef473a ",
     inputColor: "#F9DFDC",
     backgroundColor: "linear-gradient(to right, #ef473a, #cb2d3e)",
   },
