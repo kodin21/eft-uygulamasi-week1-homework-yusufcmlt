@@ -106,16 +106,30 @@ h2 {
   outline: none;
   border-bottom: 2px solid green;
 }
-.form__input:invalid {
-  border-bottom: 2px solid red;
+
+.form__warning {
+  color: red;
+  padding: 0.3rem;
+  visibility: hidden;
+  font-size: 1.03rem;
 }
+
+.form__input:invalid {
+  border-bottom: 2px solid rgb(240, 86, 14);
+}
+.form__input:invalid + .form__warning {
+  visibility: visible;
+}
+
 b {
   font-family: inherit;
   font-size: 1.6rem;
   font-weight: 700;
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   left: 1rem;
+  z-index: 5;
 }
 
 .form__btn {
