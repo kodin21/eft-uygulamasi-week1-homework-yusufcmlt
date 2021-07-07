@@ -14,8 +14,8 @@ const accounts = [
 ];
 
 const user = {
-  name: "Jane",
-  surname: "Doe",
+  name: "Mahmut",
+  surname: "Tuncer",
   accounts,
 };
 
