@@ -17,7 +17,7 @@
     <!-- form-container-start -->
     <div class="form__container">
       <div class="logo">
-        <img src="./img/grape.svg" alt="banana" class="logo__img" />
+        <img src="./img/grape.png" alt="banana" class="logo__img" />
         <h2>ÜzümBank</h2>
       </div>
       <!-- form-start -->
@@ -29,10 +29,10 @@
             class="form__input"
             id="ibanAlici"
             name="ibanAlici"
-            minlength="5"
-            maxlength="20"
+            pattern=".{19,19}"
             required
           />
+          <p class="form__warning">IBAN bilgisi giriniz. 16 karakter.</p>
         </div>
         <div class="form__group">
           <label for="gonderilecekMiktar" class="form__label">Miktar</label
@@ -45,6 +45,10 @@
             name="gonderilecekMiktar"
             required
           />
+          <p class="form__warning">
+            Miktar bilgisi giriniz. 1₺'den az veya hesabınızda bulunandan daha
+            fazla giremezsiniz.
+          </p>
         </div>
         <div class="form__group">
           <button id="gonderBtn" class="form__btn">Gönder</button>
