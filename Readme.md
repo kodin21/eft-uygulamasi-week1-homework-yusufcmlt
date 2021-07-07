@@ -1,3 +1,6 @@
+
+<video src="https://user-images.githubusercontent.com/58252790/124765496-af7b6c80-df3e-11eb-937a-69af6815b1eb.mp4" width="320" height="200" controls preload autoplay></video>
+
 ### Karsilanan Gereksinimler:
 
 - [x] Kullanıcı parayı gönderen hesabı ve paranın gönderileceği hesabı seçmeden gönder butonu aktif olmamalı.
@@ -15,6 +18,7 @@
 ##### Bug
 
 - Proje yarn start ile ilk defa calistirildiginda nadiren de olsa stiller yuklenmeyebiliyor (2 kere yasandi). Nedenini arastirmadim ancak islem sonlandirilip tekrar calistirildiginda sorun ortadan kalkiyor.
+- Sifre yanlis bildiriminde entera basildiginda tekrar sifreyi sormadan ayni bildirimi veriyor. Sifre girme hakkiniz 1 dusuyor.
 
 ### Projeyi calistirma:
 
