@@ -12,7 +12,7 @@ import {
 const formState = {}; //Form iceriginin state verisi.
 
 const highLimit = 500; //Belirlenebilecek kontrol limiti, sonrasinda sifre sormasi gerekir.
-const timeLimit = 400; // Belirlenebilecek zaman limiti (saniye), timer icerisinde kullanilir.
+const timeLimit = 120; // Belirlenebilecek zaman limiti (saniye), timer icerisinde kullanilir.
 const passwordAttemptLimit = 3; // Belirlenebilecek password girme sayisi.
 
 const formElement = document.querySelector("form"); //Form elemaninin secilmesi.
@@ -55,9 +55,6 @@ function handleInputChange(event) {
   if (type === "text") {
     event.target.value = value.trim(); //Bos karakter kullaniminin engellenmesi
     event.target.value = splitInput(value); //Karakterlerin 4lu gruplar halinde bolunmesi
-    console.log(event.target.validity.valid);
-    event.target.validity.valid = false;
-    console.log(event.target.validity.valid);
   }
 
   setInputMaxAttribute(formState[selectElement.name]);
