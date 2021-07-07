@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>UZUM BANK EFT YAP</title>
+    <title>UZUM BANK EFT</title>
   </head>
   <body>
     <!-- form-container-start -->
@@ -29,6 +29,8 @@
             class="form__input"
             id="ibanAlici"
             name="ibanAlici"
+            minlength="5"
+            maxlength="20"
             required
           />
         </div>
@@ -37,7 +39,7 @@
           ><b>₺</b
           ><input
             type="number"
-            min="0"
+            min="1"
             class="form__input"
             id="gonderilecekMiktar"
             name="gonderilecekMiktar"
