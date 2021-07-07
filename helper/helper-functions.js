@@ -1,48 +1,9 @@
-import FormTimer from "../components/FormTimer";
-import SelectOptions from "../components/SelectOptions";
 import swal from "sweetalert";
 import backgroundData from "../data/background-data";
 
-//Form elemanindaki inputlara on change eventinin eklenmesi
-//Inputlara keyup eventi de eklendi: her tus girisinin kontrol edilmesi isteniyor.
-export function inputEventCreator(containerForm, eventFunction) {
-  containerForm.querySelectorAll("input").forEach((input) => {
-    input.addEventListener("change", eventFunction);
-    input.addEventListener("keyup", eventFunction);
-  });
-}
-//Timerin forma eklenmesi.
-//Timer saniye ile cagirilir (dk*60)
-export function timerCreator(containerForm, timeLimit) {
-  const timerElement = FormTimer(timeLimit);
-  containerForm.prepend(timerElement);
-}
-
-//Select eleman grubunun ---ilk inputtan hemen önce--- forma eklenmesi.
-//id ve onChangeFunction argumanlari kullanilarak select grubu olusturuluyor ve event baglaniyor.
-//Ilk render durumunda secili secenegin degeri state e ataniyor.
-export function selectGroupCreator(formData, initialState, eventFunction) {
-  const selectGroup = SelectOptions(formData, {
-    id: "gondericiHesapMiktar",
-    onChangeFunction: eventFunction,
-  });
-  const selectElement = selectGroup.querySelector("select");
-  initialState[selectElement.name] = selectElement.value;
-  document
-    .querySelector(".form__group")
-    .insertAdjacentElement("beforebegin", selectGroup);
-}
-
-//Sayfa load durumunda input iceriginin silinmesi.
-export function clearInputValues(inputList) {
-  inputList.forEach((element) => {
-    element.value = "";
-  });
-}
-
 //Gonderilecek miktarin 500 birimden fazla olmasinin kontrolu
 //Sifre girebilme hakkiyla beraber yanlis sifre durumunda tekrar cagirilma.
-//Sweetalert eklendi.
+//Alert ve promptlar icin Sweetalert (swal) eklendi.
 export function higherAmountTransaction(
   passwordAttemptsLeft,
   passwordSent = "1234"
@@ -102,7 +63,7 @@ export function getRandomTheme() {
   document.querySelectorAll(".form__input").forEach((element) => {
     element.style.backgroundColor = randomTheme.inputColor;
   });
-  console.log(document.querySelector("button"));
+
   document.querySelector("button").style.backgroundColor = randomTheme.btnColor;
   document.title = `${randomTheme.text}Bank EFT`;
 }

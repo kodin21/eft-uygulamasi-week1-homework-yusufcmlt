@@ -32,9 +32,9 @@ export default function FormTimer(time) {
   //Olusturulan element
   const timerContainer = document.createElement("div");
   timerContainer.classList.add("form__timer");
-
   timerContainer.innerHTML = `Kalan Süre <span id="timerKalan">${firstTime.minutesLeft}:${firstTime.secondsLeft}
     </span>`;
+
   //Timeri calistir
   const timerID = setInterval(() => {
     timerTick(timerContainer);
@@ -53,4 +53,12 @@ export default function FormTimer(time) {
   }
 
   return timerContainer;
+}
+
+//Timerin forma eklenmesi.
+//Timer saniye ile cagirilir (dk*60)
+//contianerForm parametresi ile gelen container elemanin ilk basina eklenir;
+export function timerCreator(containerForm, timeLimit) {
+  const timerElement = FormTimer(timeLimit);
+  containerForm.prepend(timerElement);
 }
