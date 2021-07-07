@@ -1,4 +1,4 @@
-### Karsilanan Gereksinimler;
+### Karsilanan Gereksinimler:
 
 - [x] Kullanıcı parayı gönderen hesabı ve paranın gönderileceği hesabı seçmeden gönder butonu aktif olmamalı.
 - [x] Kullanıcı gönderilecek para miktarına bakiyesinden daha çok yazamamalı, yazarsa gönder butonu aktif olmamalı ve ekranda hata olmalı.
@@ -8,11 +8,15 @@
 - [x] Şifre 1234 değilse "Şifre yanlış" geri bildirimi verilmeli, 3 kere yanlış şifre girilirse 4.sünde "Hesabınız bloke oldu" geri bildirimi verilmeli
 - [x] Herhangi bir işlem esnasında 2 dakikalik geri sayım süresi dolarsa kullanıcıya "Oturumunuz sonlanmıştır" geri bildirimi verilmeli ve sayfa yenilenmeli.
 
+##### Not
+
+- Geri bildirim pencereleri icin sweetalert kullanildi.
+
 ##### Bug
 
-Proje yarn start ile ilk defa calistirildiginda nadiren de olsa stiller yuklenmeyebiliyor (2 kere yasandi). Nedenini arastirmadim ancak islem sonlandirilip tekrar calistirildiginda sorun ortadan kalkiyor.
+- Proje yarn start ile ilk defa calistirildiginda nadiren de olsa stiller yuklenmeyebiliyor (2 kere yasandi). Nedenini arastirmadim ancak islem sonlandirilip tekrar calistirildiginda sorun ortadan kalkiyor.
 
-### Projeyi calistirma
+### Projeyi calistirma:
 
 Eğer bu repoyu kullanarak kendi bilgisayarinizda development yapmak isterseniz sirasiyla,
 
@@ -39,7 +43,14 @@ Ekranda olması gerekenler;
 5. Zaman sayacı (saniye cinsinden, 2 dakikadan geri sayar.)
 
 Gereksinimler;
-1-Kullanıcı parayı gönderen hesabı ve paranın gönderileceği hesabı seçmeden gönder butonu aktif olmamalı. 2) Kullanıcı gönderilecek para miktarına bakiyesinden daha çok yazamamalı, yazarsa gönder butonu aktif olmamalı ve ekranda hata olmalı. 3) Göndere basıldığı zaman miktar 500'den az ise kullanıcıya "Başarılı" geri bildirimi verilmeli. 4) Göndere basıldığı zaman miktar 500 veya daha çok ise kullanıcıya "Telefonunuza gelen şifreyi girin" sorusunu soran, 4 karakter numeric input yazabileceği bir UI çıkmalı. 5) Şifre girme esnasında 1234 girilirse ve enter'a basılırsa "Başarılı" geri bildirimi verilmeli. 6) Şifre 1234 değilse "Şifre yanlış" geri bildirimi verilmeli, 3 kere yanlış şifre girilirse 4.sünde "Hesabınız bloke oldu" geri bildirimi verilmeli 7) Herhangi bir işlem esnasında 2 dakikalik geri sayım süresi dolarsa kullanıcıya "Oturumunuz sonlanmıştır" geri bildirimi verilmeli ve sayfa yenilenmeli.
+
+1. Kullanıcı parayı gönderen hesabı ve paranın gönderileceği hesabı seçmeden gönder butonu aktif olmamalı.
+2. Kullanıcı gönderilecek para miktarına bakiyesinden daha çok yazamamalı, yazarsa gönder butonu aktif olmamalı ve ekranda hata olmalı.
+3. Göndere basıldığı zaman miktar 500'den az ise kullanıcıya "Başarılı" geri bildirimi verilmeli.
+4. Göndere basıldığı zaman miktar 500 veya daha çok ise kullanıcıya "Telefonunuza gelen şifreyi girin" sorusunu soran, 4 karakter numeric input yazabileceği bir UI çıkmalı.
+5. Şifre girme esnasında 1234 girilirse ve enter'a basılırsa "Başarılı" geri bildirimi verilmeli.
+6. Şifre 1234 değilse "Şifre yanlış" geri bildirimi verilmeli, 3 kere yanlış şifre girilirse 4.sünde "Hesabınız bloke oldu" geri bildirimi verilmeli
+7. Herhangi bir işlem esnasında 2 dakikalik geri sayım süresi dolarsa kullanıcıya "Oturumunuz sonlanmıştır" geri bildirimi verilmeli ve sayfa yenilenmeli.
 
 Notlar: geri bildirim vermek yada cep şifresi almak için alert/prompt metodları kullanılabileceği gibi tamamen özel bir UI'da yapılabilir. Burası size kalmış.
 Kullanıcının bilgileri, hesapları ve bakiye bilgilerini user_information.js dosyası içerisinden kullanın.
