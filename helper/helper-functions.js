@@ -100,7 +100,6 @@ export function getRandomTheme() {
   logoContainer.querySelector("h2").textContent = `${randomTheme.text}Bank`;
 
   document.querySelectorAll(".form__input").forEach((element) => {
-    console.log(element);
     element.style.backgroundColor = randomTheme.inputColor;
   });
   console.log(document.querySelector("button"));
